@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "WadReader.h"
 
 struct node {
   int item;
@@ -46,7 +47,14 @@ struct node* insertRight(struct node* root, int value) {
   return root->right;
 }
 
+
+void init(){
+  openPath();
+}
+
+
 int main() {
+  init();
   struct node* root = createNode(0);
   insertLeft(root, -5);
   insertRight(root, 20);
