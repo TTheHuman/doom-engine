@@ -2,12 +2,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "wadReader.h"
 
 struct node {
   int item;
   struct node* left;
   struct node* right;
 };
+
 
 // Inorder traversal
 void inorderTraversal(struct node* root, int player_pos) {
@@ -23,6 +25,7 @@ void inorderTraversal(struct node* root, int player_pos) {
       inorderTraversal(root->left, player_pos);
   }
 }
+
 
 // Create a new Node
 struct node* createNode(int value) {
@@ -47,19 +50,15 @@ struct node* insertRight(struct node* root, int value) {
 }
 
 
-void init(){
-  openPath();
-}
-
 
 int main() {
-  init();
+  read();
   struct node* root = createNode(0);
   insertLeft(root, -5);
   insertRight(root, 20);
   insertLeft(root->left, -10);
   insertRight(root->right, 23);
-
+-
   printf("Inorder traversal \n");
   inorderTraversal(root, -6);
 }
